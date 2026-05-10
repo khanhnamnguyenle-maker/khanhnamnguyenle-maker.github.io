@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dành cho Anh Thạch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#0f172a',
+                        rose: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            900: '#881337',
+                        },
+                        champagne: '#f7e7ce',
+                        dusty: '#b5838d',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        cursive: ['Great Vibes', 'cursive'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 2s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'slide-up': 'slideUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'unfold': 'unfold 1.2s ease-in-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        unfold: {
+                            '0%': { transform: 'rotateX(-90deg)', opacity: '0', transformOrigin: 'top' },
+                            '100%': { transform: 'rotateX(0)', opacity: '1', transformOrigin: 'top' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f7e7ce;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .letter-paper {
+            background: #fffcf5;
+            color: #2d3436;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .letter-paper::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .parallax-bg {
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+
+        .floral-accent {
+            filter: drop-shadow(0 0 15px rgba(251, 113, 133, 0.3));
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #b5838d;
+            border-radius: 10px;
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="custom-scrollbar selection:bg-rose-300 selection:text-midnight">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative h-screen w-full flex items-center justify-center overflow-hidden parallax-bg">
+        <div class="absolute inset-0 z-0">
+            <!-- Animated subtle light orbs -->
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-rose-900/20 rounded-full blur-[120px] animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-900/20 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4">
+            <h2 class="font-sans uppercase tracking-[0.4em] text-rose-300 text-sm mb-6 animate-fade-in opacity-0">Đặc biệt dành cho</h2>
+            <h1 class="font-serif text-6xl md:text-8xl lg:text-9xl text-champagne mb-8 animate-slide-up opacity-0">Anh Thạch</h1>
+            <div class="w-12 h-[1px] bg-champagne/40 mx-auto mb-8 animate-fade-in opacity-0" style="animation-delay: 1s"></div>
+            <p class="font-sans font-light italic text-rose-100/70 tracking-widest animate-fade-in opacity-0" style="animation-delay: 1.5s">
+                Một món quà nhỏ từ trái tim...
+            </p>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer" onclick="document.getElementById('letter').scrollIntoView()">
+            <svg class="w-6 h-6 text-rose-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- THE LOVE LETTER SECTION -->
+    <section id="letter" class="relative py-24 md:py-40 px-4 md:px-0 flex justify-center bg-midnight overflow-hidden">
+        <!-- Background floral elements (SVG-based for safety) -->
+        <div class="absolute top-0 right-0 w-64 h-64 opacity-10 pointer-events-none transform translate-x-1/4 -translate-y-1/4">
+            <svg viewBox="0 0 200 200" fill="currentColor" class="text-rose-400">
+                <path d="M100,20 C120,20 140,40 140,60 C140,80 120,100 100,100 C80,100 60,80 60,60 C60,40 80,20 100,20 M100,100 C120,100 140,120 140,140 C140,160 120,180 100,180 C80,180 60,160 60,140 C60,120 80,100 100,100" />
+            </svg>
+        </div>
+        
+        <div class="max-w-2xl w-full reveal-on-scroll">
+            <div class="letter-paper p-8 md:p-16 rounded-sm shadow-2xl relative">
+                <!-- Wax seal aesthetic element -->
+                <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 bg-rose-900 rounded-full flex items-center justify-center border-4 border-rose-100/20 shadow-lg z-20">
+                    <span class="font-serif text-2xl text-rose-100">T</span>
+                </div>
+
+                <div class="font-serif text-zinc-800 space-y-8 leading-relaxed text-lg md:text-xl">
+                    <p class="font-bold text-2xl md:text-3xl mb-12">Gửi Anh Thạch,</p>
+                    
+                    <p class="first-letter:text-5xl first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:text-rose-900">
+                        Giữa nhịp sống hối hả, đôi khi chúng ta dễ dàng quên mất việc phải vỗ về chính bản thân mình. Vì thế, đóa hoa tulip khổng lồ này được gửi đến anh như một cái ôm ấm áp, rực rỡ và chân thành nhất.
+                    </p>
+
+                    <p>
+                        Từng cánh hoa tulip kiêu sa không chỉ mang theo sắc xuân, mà còn là hiện thân cho tình yêu nồng nàn và trọn vẹn mà em dành cho anh. Kích thước đại ngàn của bó hoa này cũng chính là đại diện cho sự bao la của nỗi nhớ đang lớn dần trong lòng em mỗi ngày.
+                    </p>
+
+                    <div class="py-6 italic text-zinc-600 border-l-4 border-rose-200 pl-6">
+                        "Không biết là anh đã ăn gì chưa? Nếu ăn rồi thì anh hãy gác lại mọi lo toan, nhắm mắt lại và nghỉ ngơi thật tốt đi nhé."
+                    </div>
+
+                    <p>
+                        Đi cùng với hương sắc của hoa là những món quà nhỏ đầy tâm ý mà em đã tỉ mỉ chọn lựa. Đó là những quan tâm vụn vặt, là những chi tiết đời thường mà em mong có thể thay mình chăm sóc anh khi em không ở cạnh.
+                    </p>
+
+                    <p>
+                        Hãy nhận lấy món quà này và cảm nhận sự hiện diện của em bên cạnh. Nghỉ ngơi đi anh nhé, vì em nhớ anh – nỗi nhớ dịu dàng nhưng vô cùng sâu đậm.
+                    </p>
+
+                    <div class="mt-20 pt-8 border-t border-rose-100 flex flex-col items-end">
+                        <p class="font-cursive text-4xl text-rose-900 mb-2">Thương anh,</p>
+                        <p class="font-sans font-medium uppercase tracking-widest text-sm text-zinc-500">Người của anh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOUQUET SHOWCASE -->
+    <section class="py-24 bg-[#0a0f1d]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal-on-scroll">
+                    <div class="relative group">
+                        <!-- Floral decorative frame -->
+                        <div class="absolute -inset-4 border border-rose-300/30 rounded-3xl transition-transform duration-500 group-hover:scale-105"></div>
+                        <div class="aspect-[4/5] bg-gradient-to-br from-rose-900/40 to-midnight rounded-2xl flex items-center justify-center p-8 overflow-hidden">
+                            <div class="text-center">
+                                <!-- Abstract Floral SVG as placeholder for the "Giant Tulip" vibe -->
+                                <svg class="w-48 h-48 md:w-64 md:h-64 text-rose-300/60 animate-float" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12,22C12,22 10,18 10,15C10,13.9 10.9,13 12,13C13.1,13 14,13.9 14,15C14,18 12,22 12,22M12,2C14.21,2 16,3.79 16,6C16,8.21 14.21,10 12,10C9.79,10 8,8.21 8,6C8,3.79 9.79,2 12,2M19,14C21.21,14 23,15.79 23,18C23,20.21 21.21,22 19,22C16.79,22 15,20.21 15,18C15,15.79 16.79,14 19,14M5,14C7.21,14 9,15.79 9,18C9,20.21 7.21,22 5,22C2.79,22 1,20.21 1,18C1,15.79 2.79,14 5,14Z" />
+                                </svg>
+                                <p class="font-sans text-rose-200 mt-6 tracking-widest uppercase text-sm">Biểu tượng của sự nồng nàn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-on-scroll flex flex-col justify-center">
+                    <h3 class="font-serif text-4xl md:text-5xl text-champagne mb-6">Đóa Tulip Khổng Lồ</h3>
+                    <p class="text-rose-100/70 text-lg leading-relaxed font-light mb-8">
+                        Lấy cảm hứng từ nét đẹp kiêu sa và sức sống mãnh liệt của mùa xuân, bó tulip đại ngàn này được thiết kế để gây ấn tượng mạnh mẽ ngay từ cái nhìn đầu tiên. Những cánh hoa mượt mà vươn cao, ôm ấp lấy những lời nhắn nhủ yêu thương.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <span class="w-8 h-[1px] bg-rose-400"></span>
+                            <span class="text-rose-200 font-sans tracking-wide">Kích thước đại ngàn ấn tượng</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="w-8 h-[1px] bg-rose-400"></span>
+                            <span class="text-rose-200 font-sans tracking-wide">Màu sắc rực rỡ, chân thành</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="w-8 h-[1px] bg-rose-400"></span>
+                            <span class="text-rose-200 font-sans tracking-wide">Thay lời ôm ấm áp</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXTRA TOUCHES GALLERY -->
+    <section class="py-24 bg-midnight">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h3 class="font-serif text-3xl md:text-4xl text-champagne mb-4">Gói Trọn Tâm Ý</h3>
+                <p class="font-sans text-rose-200/60 uppercase tracking-[0.3em] text-xs">Curated Romance Kit</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Item 1: The Personal Care/Practical -->
+                <div class="reveal-on-scroll transition-transform hover:-translate-y-2">
+                    <div class="glass-panel p-8 rounded-2xl h-full flex flex-col">
+                        <div class="w-12 h-12 bg-rose-900/30 rounded-full flex items-center justify-center mb-6 text-rose-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-serif text-xl text-champagne mb-3">Sự Quan Tâm Vụn Vặt</h4>
+                        <p class="font-sans text-sm text-rose-100/60 leading-relaxed">
+                            Những món quà nhỏ em tỉ mỉ chọn lựa để thay em chăm sóc anh mỗi khi xa cách.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 2: The Date Night / Condom (Refined Presentation) -->
+                <div class="reveal-on-scroll transition-transform hover:-translate-y-2" style="transition-delay: 0.1s">
+                    <div class="glass-panel p-8 rounded-2xl h-full flex flex-col border-rose-500/20">
+                        <div class="w-12 h-12 bg-rose-500/20 rounded-full flex items-center justify-center mb-6 text-rose-400">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            </svg>
+                        </div>
+                        <h4 class="font-serif text-xl text-rose-300 mb-3">Phút Giây Nồng Nàn</h4>
+                        <p class="font-sans text-sm text-rose-100/60 leading-relaxed">
+                            Bảo vệ và trân trọng những khoảnh khắc riêng tư nhất của chúng mình, đầy tinh tế và an toàn.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 3: The Relaxation -->
+                <div class="reveal-on-scroll transition-transform hover:-translate-y-2" style="transition-delay: 0.2s">
+                    <div class="glass-panel p-8 rounded-2xl h-full flex flex-col">
+                        <div class="w-12 h-12 bg-blue-900/30 rounded-full flex items-center justify-center mb-6 text-blue-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-serif text-xl text-champagne mb-3">Giấc Ngủ Yên Bình</h4>
+                        <p class="font-sans text-sm text-rose-100/60 leading-relaxed">
+                            Món quà nhắc anh hãy gác lại mọi lo toan, nhắm mắt và nghỉ ngơi thật tốt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL SIGN OFF -->
+    <section class="py-32 relative bg-midnight text-center px-6 overflow-hidden">
+        <div class="absolute inset-0 opacity-20 flex justify-center items-center">
+            <span class="font-cursive text-[20vw] text-rose-900 select-none">Remember</span>
+        </div>
+        
+        <div class="relative z-10 reveal-on-scroll">
+            <h4 class="font-serif text-3xl md:text-5xl text-champagne mb-8">Nghỉ ngơi đi anh nhé</h4>
+            <div class="flex justify-center items-center space-x-6 mb-8">
+                <div class="w-16 h-[1px] bg-rose-400"></div>
+                <div class="text-rose-400">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                </div>
+                <div class="w-16 h-[1px] bg-rose-400"></div>
+            </div>
+            <p class="font-sans text-rose-100/50 tracking-widest uppercase text-sm">Em luôn ở đây, bên cạnh anh.</p>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroText = document.querySelector('#hero .relative.z-10');
+            if (heroText) {
+                heroText.style.transform = `translateY(${scrolled * 0.3}px)`;
+                heroText.style.opacity = 1 - (scrolled / 800);
+            }
+        });
+
+        // Click to scroll for smooth navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
